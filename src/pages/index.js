@@ -1,3 +1,5 @@
+import Link from 'next/link'; 
+
 export default function Home() {
   return (
     <div>
@@ -5,6 +7,12 @@ export default function Home() {
         <h1>Culture & Heritage</h1>
         <p>Discover the beauty of traditions and historical landmarks.</p>
       </header>
+
+      <nav>
+        <Link href="/about">About</Link> | 
+        <Link href="/contact">Contact</Link> | 
+        <Link href="/gallery">Gallery</Link>
+      </nav>
 
       <section className="gallery">
         <div className="card">
