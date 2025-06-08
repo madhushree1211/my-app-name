@@ -1,7 +1,9 @@
+import "../styles/global.css"; // Import CSS
+
 export default function Home() {
   return (
     <div>
-      <header>
+      <header className="header">
         <h1>Culture & Heritage</h1>
         <p>Discover the beauty of traditions and historical landmarks.</p>
       </header>
@@ -17,8 +19,27 @@ export default function Home() {
           <h3>Traditional Attire</h3>
           <p>Elegance in every thread of Indian culture.</p>
         </div>
+        <div className="card">
+          <img src="https://i.pinimg.com/736x/53/73/51/537351962ef93aee2d854ceac1396603.jpg" alt="Classical & Folk Dances" />
+          <h3>Classical & Folk Dances</h3>
+          <p>Graceful movements, timeless stories.</p>
+        </div>
+        <div className="card">
+          <img src="https://i.pinimg.com/736x/7d/b0/26/7db02666282faa1d42f012a6707cd747.jpg" alt="Historical Monuments" />
+          <h3>Historical Monuments</h3>
+          <p>Echoes of India's rich heritage.</p>
+        </div>
+        <div className="card">
+          <img src="https://i.pinimg.com/736x/3e/75/07/3e75078a49c9ffc68d58566ee337f7f5.jpg" alt="Traditional Art & Crafts" />
+          <h3>Traditional Art & Crafts</h3>
+          <p>Handcrafted beauty that speaks history.</p>
+        </div>
+        <div className="card">
+          <img src="https://i.pinimg.com/736x/f7/41/5f/f7415f93ecdccc842224b4790f541112.jpg" alt="Indian Cuisine" />
+          <h3>Indian Cuisine</h3>
+          <p>Spices, flavors, and delicious traditions.</p>
+        </div>
       </section>
     </div>
   );
 }
-
