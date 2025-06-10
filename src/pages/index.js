@@ -9,9 +9,10 @@ export default function Home() {
       </header>
 
       <nav>
-        <Link href="/about">About</Link> | 
-        <Link href="/contact">Contact</Link> | 
-        <Link href="/gallery">Gallery</Link>
+        <Link href="/about">About</Link> |
+        <Link href="/contact">Contact</Link> |
+        <Link href="/gallery">Gallery</Link> |
+        <Link href="/artifacts">View Artifacts</Link>
       </nav>
 
       <section className="gallery">
