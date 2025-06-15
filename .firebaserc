@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "my-app-name-9bc3a",
+    "hi": "new-culture-3add3",
+    "assignment": "my-app-name-9bc3a"
+  },
+  "targets": {},
+  "etags": {}
+}
