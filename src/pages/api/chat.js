@@ -1,27 +1,22 @@
-import axios from "axios";
-
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method Not Allowed" });
-  }
-
-  const { message } = req.body;
-  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
-
-  try {
-    const response = await axios.post(
-      "https://api.openai.com/v1/chat/completions",
-      {
-        model: "gpt-4",
+async function fetchAIResponseWithRetry(message, attempts = 5) {
+  let delay = 2000; // Start with 2 seconds
+  for (let i = 0; i < attempts; i++) {
+    try {
+      const response = await axios.post("https://api.openai.com/v1/chat/completions", {
+        model: "gpt-4o",
         messages: [{ role: "user", content: message }],
-      },
-      {
+      }, {
         headers: { Authorization: `Bearer ${apiKey}` },
+      });
+      return response.data.choices[0].message.content;
+    } catch (error) {
+      if (error.response?.status === 429) {
+        await new Promise(res => setTimeout(res, delay));
+        delay *= 2;
+      } else {
+        throw error;
       }
-    );
-
-    res.status(200).json({ reply: response.data.choices[0].message.content });
-  } catch (error) {
-    res.status(500).json({ error: "API request failed" });
+    }
   }
+  throw new Error("API rate limit exceeded. Try again later.");
 }
